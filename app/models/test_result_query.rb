@@ -1,5 +1,6 @@
 class TestResultQuery
   include Policy::Actions
+  attr_reader :api_query
 
   def initialize params, user
     institutions = Policy.authorize(QUERY_TEST, Institution, user, user.policies).map(&:uuid)
